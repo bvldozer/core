@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_wizard"
+    android:layout_width="@dimen/dimens_40dp"
+    android:layout_height="@dimen/dimens_4dp"
+    android:layout_marginRight="@dimen/dimens_4dp"
+    android:background="@drawable/shape_round_square_blue">
+
+
+</RelativeLayout>
