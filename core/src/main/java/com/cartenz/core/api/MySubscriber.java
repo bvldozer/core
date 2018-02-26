@@ -20,8 +20,8 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
     @Override
     public void onNext(T t) {
         BaseApiDao baseApiDao = (BaseApiDao) t;
-        if (!TextUtils.isEmpty(baseApiDao.getMessage())) {
-            onError(baseApiDao.getMessage());
+        if (!TextUtils.isEmpty(baseApiDao.getMessage()) || baseApiDao.getError() != null) {
+            onError(baseApiDao.getMessage() + "");
         } else {
             onSuccess(t);
         }

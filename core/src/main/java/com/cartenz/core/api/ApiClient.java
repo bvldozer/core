@@ -56,7 +56,7 @@ public abstract class ApiClient<T> {
 
             Response response = chain.proceed(request);
             String rawJson = response.body().string();
-            if (!response.isSuccessful() || rawJson.contains("\"success\":false") && rawJson.contains("\"msg\":")) {
+            if (!response.isSuccessful() || rawJson.contains("\"success\":false") && !rawJson.equals("\"errors\": null")) {
                 BaseApiDao errorApiDao = new Gson().fromJson(rawJson, BaseApiDao.class);
                 String errorMessage = errorApiDao.getMessage();
                 if (errorMessage == null) {
