@@ -20,6 +20,7 @@ public class Dictionary {
 
     public static HashMap<String, String> set() {
         HashMap<String, String> dictionary = new HashMap<>();
+        dictionary.put("-1", "error");
         dictionary.put("99020302", "username");
         dictionary.put("99020402", "password");
         dictionary.put("92000001", "status_data");
