@@ -29,11 +29,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     protected void initCreate() {
         loginPresenter = new LoginPresenter();
         loginPresenter.setView(this, this);
-        Log.wtf("Test_", Dictionary.getValueByKey(this, "92000001") + " " +
-                Dictionary.getKeyByValue(this, "status_data") + " " +
-                Dictionary.getValueByKey(this, "status_data") + " " +
-                Dictionary.getKeyByValue(this, "92000001")
-        );
+
     }
 
     @Override

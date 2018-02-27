@@ -43,7 +43,6 @@ final class LoginPresenter implements LoginContract.Presenter {
 
                     @Override
                     public void onError(String message, String errorMessage) {
-                        Log.wtf("Test_okhttp", message + " " + errorMessage);
                         mLoginView.loginResult(errorMessage);
                     }
 

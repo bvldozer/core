@@ -1,7 +1,6 @@
 package com.cartenz.core.api;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.cartenz.core.utils.Dictionary;
 import com.google.gson.Gson;
@@ -20,7 +19,6 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        Log.wtf("Test_e", e + "");
         onError(e.getMessage(), "");
         onComplete();
     }
@@ -31,7 +29,6 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
         String json = gson.toJson(t);
         BaseApiDao baseApiDao = gson.fromJson(json, BaseApiDao.class);
         String message = null;
-        Log.wtf("test_okhttp_yy", t + " " + json + " " + baseApiDao.message + " " + baseApiDao.errors);
 
         if (!TextUtils.isEmpty(baseApiDao.message)) {
             message = baseApiDao.message;
@@ -42,14 +39,10 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
             List<BaseApiDao.Errors> baseErrorDaoList = baseApiDao.errors;
             List<String> error = new ArrayList<>();
             for (int i = 0; i < baseErrorDaoList.size(); i++) {
-                Log.wtf("Test_" + i, baseErrorDaoList.get(i).itemCode + "");
                 error.add(baseErrorDaoList.get(i).itemCode + "");
             }
-            Log.wtf("test_e", error + " " + error.size());
             errorMessage = Dictionary.getValueByKey(error);
         }
-
-        Log.wtf("test_okhttp_x", message + " " + errorMessage);
 
         if (TextUtils.isEmpty(message) && TextUtils.isEmpty(errorMessage)) {
             onSuccess(t);
