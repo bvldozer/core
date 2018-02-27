@@ -1,7 +1,6 @@
 package com.cartenz.core.api;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.cartenz.core.utils.Dictionary;
 import com.google.gson.Gson;
@@ -45,7 +44,7 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
             }
             errorMessage = Dictionary.getValueByKey(error);
         }
-        if (!TextUtils.isEmpty(message) || !TextUtils.isEmpty(errorMessage) || baseApiDao.data == null || baseApiDao.errors.size() > 0) {
+        if (!TextUtils.isEmpty(message) || !TextUtils.isEmpty(errorMessage) || baseApiDao.data == null || (baseApiDao.errors != null && baseApiDao.errors.size() > 0)) {
             if (TextUtils.isEmpty(message)) {
                 message = "";
             }
