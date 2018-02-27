@@ -25,6 +25,7 @@ public abstract class MySubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onNext(T t) {
+
         Gson gson = new Gson();
         String json = gson.toJson(t);
         BaseApiDao baseApiDao = gson.fromJson(json, BaseApiDao.class);

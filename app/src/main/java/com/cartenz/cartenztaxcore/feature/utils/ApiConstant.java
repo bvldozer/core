@@ -5,7 +5,5 @@ package com.cartenz.cartenztaxcore.feature.utils;
  */
 
 public class ApiConstant {
-    public static String BASEURL = "http://52.74.94.107:9010/";
-
-
+    public static String BASEURL = "http://test.com";
 }

@@ -1,6 +1,9 @@
 package com.cartenz.core.api;
 
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -53,7 +56,13 @@ public abstract class ApiClient<T> {
             Request request = reqBuilder.build();
 
             Response response = chain.proceed(request);
-            String rawJson = "{ \"data\": null, \"code\": 0, \"message\": null, \"errors\": [ { \"code\": 99990201, \"itemCode\": 99020302 }, { \"code\": 99990201, \"itemCode\": 99020402 } ] }";
+            String rawJson = response.body().string();
+            if (response.headers().get("cti-auth-token") != null) {
+                JsonParser parser = new JsonParser();
+                JsonObject o = parser.parse(rawJson).getAsJsonObject();
+                o.addProperty("token", response.headers().get("cti-auth-token"));
+                rawJson = o.toString();
+            }
             return response.newBuilder().body(ResponseBody.create(response.body().contentType(), rawJson)).build();
         }
     }
