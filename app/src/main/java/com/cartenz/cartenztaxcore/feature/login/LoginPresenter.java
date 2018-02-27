@@ -4,7 +4,6 @@ package com.cartenz.cartenztaxcore.feature.login;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.cartenz.cartenztaxcore.App;
 import com.cartenz.cartenztaxcore.api.dao.LoginDao;

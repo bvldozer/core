@@ -1,6 +1,7 @@
 package com.cartenz.core.api;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.cartenz.core.utils.Dictionary;
 import com.google.gson.Gson;

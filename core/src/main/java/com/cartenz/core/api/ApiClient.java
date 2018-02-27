@@ -1,6 +1,9 @@
 package com.cartenz.core.api;
 
 
+import android.util.Log;
+
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -59,9 +62,11 @@ public abstract class ApiClient<T> {
             String rawJson = response.body().string();
             if (response.headers().get("cti-auth-token") != null) {
                 JsonParser parser = new JsonParser();
-                JsonObject o = parser.parse(rawJson).getAsJsonObject();
-                o.addProperty("token", response.headers().get("cti-auth-token"));
-                rawJson = o.toString();
+                JsonObject parent = parser.parse(rawJson).getAsJsonObject();
+                JsonObject member = parent.getAsJsonObject("data");
+                member.addProperty("token", response.headers().get("cti-auth-token"));
+                Gson gson = new Gson();
+                rawJson = gson.toJson(parent);
             }
             return response.newBuilder().body(ResponseBody.create(response.body().contentType(), rawJson)).build();
         }

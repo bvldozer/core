@@ -21,5 +21,6 @@ public class LoginDao extends BaseApiDao<LoginDao.DataDao> {
         public boolean lockedOut;
         public boolean deleted;
         public boolean active;
+        public String token;
     }
 }
