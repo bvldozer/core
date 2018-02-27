@@ -1,8 +1,6 @@
 package com.cartenz.core.api;
 
 
-import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -55,17 +53,8 @@ public abstract class ApiClient<T> {
             Request request = reqBuilder.build();
 
             Response response = chain.proceed(request);
-            String rawJson = response.body().string();
-            if (!response.isSuccessful() || rawJson.contains("\"success\":false") && !rawJson.equals("\"errors\": null")) {
-                BaseApiDao errorApiDao = new Gson().fromJson(rawJson, BaseApiDao.class);
-                String errorMessage = errorApiDao.getMessage();
-                if (errorMessage == null) {
-                    errorMessage = rawJson;
-                }
-                return response.newBuilder().body(ResponseBody.create(response.body().contentType(), rawJson)).message(errorMessage).build();
-            } else {
-                return response.newBuilder().body(ResponseBody.create(response.body().contentType(), rawJson)).build();
-            }
+            String rawJson = "{ \"data\": null, \"code\": 0, \"message\": null, \"errors\": [ { \"code\": 99990201, \"itemCode\": 99020302 }, { \"code\": 99990201, \"itemCode\": 99020402 } ] }";
+            return response.newBuilder().body(ResponseBody.create(response.body().contentType(), rawJson)).build();
         }
     }
 

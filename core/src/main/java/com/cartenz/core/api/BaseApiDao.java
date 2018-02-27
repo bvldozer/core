@@ -1,27 +1,16 @@
 package com.cartenz.core.api;
 
 
-import com.google.gson.JsonArray;
+import java.util.List;
 
 public class BaseApiDao<T> {
-    private T data;
-    private int code;
-    private String message;
-    private JsonArray error;
+    public T data;
+    public int code;
+    public String message;
+    public List<Errors> errors;
 
-    public T getData() {
-        return data;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public JsonArray getError() {
-        return error;
+    public static class Errors {
+        public int code;
+        public int itemCode;
     }
 }
