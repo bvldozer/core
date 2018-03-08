@@ -19,6 +19,7 @@ public class CheckPermission {
     final public static String READ_EXTERNAL_STORAGE = "Read External Storage";
     final public static String READ_PHONE_STORAGE = "Read Phone Storage";
     final public static String LOCATION = "Location";
+    final public static String VIBRATE = "Vibrate";
     final private int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
     private Context context;
     final public static List<String> permissionsNeeded = new ArrayList<>();
@@ -60,6 +61,11 @@ public class CheckPermission {
         if (requestList.contains(READ_PHONE_STORAGE)) {
             if (!addPermission(context, permissionsList, Manifest.permission.READ_PHONE_STATE))
                 permissionsNeeded.add("Read Phone Storage");
+        }
+
+        if (requestList.contains(VIBRATE)) {
+            if (!addPermission(context, permissionsList, Manifest.permission.VIBRATE))
+                permissionsNeeded.add("Vibrate");
         }
 
         if (permissionsList.size() > 0) {
