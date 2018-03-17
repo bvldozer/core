@@ -2,6 +2,7 @@ package com.cartenz.cartenztaxcore.feature.base;
 
 import android.os.Build;
 import android.support.v7.widget.Toolbar;
+import android.view.Window;
 
 import com.cartenz.core.utils.CheckPermission;
 import com.google.gson.Gson;
@@ -16,6 +17,10 @@ public abstract class BaseActivity extends com.cartenz.core.base.BaseActivity {
 
     public Gson gson = new Gson();
 
+    @Override
+    public void initBeforeCreateContent() {
+
+    }
 
     @Override
     public void initBaseCreate() {

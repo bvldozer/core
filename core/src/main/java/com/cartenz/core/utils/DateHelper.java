@@ -28,6 +28,18 @@ public class DateHelper {
         dpd.show();
     }
 
+    public static String now() {
+        return now(DATE_FORMAT1);
+    }
+
+    public static String now(String dateformat) {
+        Date date = new Date();
+//        2017-07-13 15:22:52
+        SimpleDateFormat df = new SimpleDateFormat(dateformat);
+        String formattedDate = df.format(date.getTime());
+        return formattedDate;
+    }
+
     private static String cekdate(int day, int month, int year) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, day);

@@ -32,6 +32,7 @@
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="text_18sp">18sp</dimen>
     <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_32sp">32sp</dimen>
 
     <!-- Padding -->
     <dimen name="padding_smaller">@dimen/dimens_2dp</dimen>

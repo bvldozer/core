@@ -33,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initBeforeCreateContent();
         int layoutResID = getLayoutId();
         super.setContentView(layoutResID);
         intentData = this.getIntent();
@@ -45,6 +46,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int getLayoutId();
+
+    protected abstract void initBeforeCreateContent();
 
     protected abstract void initBaseCreate();
 
