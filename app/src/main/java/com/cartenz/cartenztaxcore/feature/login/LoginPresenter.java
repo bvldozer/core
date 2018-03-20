@@ -9,11 +9,12 @@ import com.cartenz.cartenztaxcore.App;
 import com.cartenz.cartenztaxcore.api.dao.LoginDao;
 import com.cartenz.cartenztaxcore.api.repository.LoginRepository;
 import com.cartenz.core.api.MySubscriber;
+import com.cartenz.core.base.BaseSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-final class LoginPresenter implements LoginContract.Presenter {
+final class LoginPresenter extends BaseSubscriber implements LoginContract.PresenterInterface {
 
 
     @Nullable
@@ -32,7 +33,7 @@ final class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void callLogin(String username, String password) {
         LoginRepository repo = new LoginRepository(App.getApi(), username, password);
-        repo.post().subscribeOn(Schedulers.io())
+        addSubscription(repo.post().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MySubscriber<LoginDao>() {
                     @Override
@@ -50,11 +51,12 @@ final class LoginPresenter implements LoginContract.Presenter {
                         mLoginView.loginResult(null);
                     }
 
-                });
+                }));
     }
 
     @Override
     public void dropView() {
+        finishSubscriber();
         mLoginView = null;
     }
 

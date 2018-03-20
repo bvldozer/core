@@ -9,11 +9,12 @@ import com.cartenz.cartenztaxcore.App;
 import com.cartenz.cartenztaxcore.api.dao.SimpleStringDao;
 import com.cartenz.cartenztaxcore.api.repository.ForgotPassRepository;
 import com.cartenz.core.api.MySubscriber;
+import com.cartenz.core.base.BaseSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-final class ForgotPresenter implements ForgotContract.Presenter {
+final class ForgotPresenter extends BaseSubscriber implements ForgotContract.PresenterInterface {
 
 
     @Nullable
@@ -29,15 +30,9 @@ final class ForgotPresenter implements ForgotContract.Presenter {
 
 
     @Override
-    public void dropView() {
-        mForgotView = null;
-    }
-
-
-    @Override
     public void callForgot(String email) {
         ForgotPassRepository repo = new ForgotPassRepository(App.getApi(), email);
-        repo.post().subscribeOn(Schedulers.io())
+        addSubscription(repo.post().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MySubscriber<SimpleStringDao>() {
                     @Override
@@ -55,7 +50,14 @@ final class ForgotPresenter implements ForgotContract.Presenter {
                         mForgotView.forgotResult(null);
                     }
 
-                });
+                }));
 
     }
+
+    @Override
+    public void dropView() {
+        finishSubscriber();
+        mForgotView = null;
+    }
+
 }

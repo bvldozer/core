@@ -1,12 +1,10 @@
 package com.cartenz.cartenztaxcore.feature.login;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.EditText;
 
 import com.cartenz.cartenztaxcore.R;
 import com.cartenz.cartenztaxcore.feature.base.BaseActivity;
-import com.cartenz.core.utils.Dictionary;
 
 import butterknife.BindView;
 import butterknife.OnClick;
