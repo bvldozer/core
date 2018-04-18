@@ -17,7 +17,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Dictionary.set(this);
+
     }
 
     @Override
