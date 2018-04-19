@@ -4,11 +4,11 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.pratamacartenz'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -32,9 +32,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
@@ -42,17 +42,17 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
-    compile "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
-    compile('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
+    implementation "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
+    implementation "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
+    implementation('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
         exclude module: 'stax-api'
         exclude module: 'stax'
         exclude module: 'xpp3'
     }
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpInterceptionVersion"
-    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpInterceptionVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
 }

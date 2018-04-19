@@ -1,11 +1,11 @@
 package com.cartenz.core.api;
 
 
-import android.util.Log;
-
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.LongSerializationPolicy;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -37,9 +37,12 @@ public abstract class ApiClient<T> {
         }
         OkHttpClient client = builder.build();
 
+        Gson gson = new GsonBuilder()
+                .setLongSerializationPolicy(LongSerializationPolicy.STRING)
+                .create();
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .baseUrl(baseUrl)
                 .build();

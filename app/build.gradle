@@ -6,7 +6,6 @@ repositories {
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.cartenz.cartenztaxcore"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -42,6 +41,7 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
