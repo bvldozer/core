@@ -36,7 +36,6 @@ public class Dictionary {
         dictionary.put("92000014", "telephone1");
         dictionary.put("92000015", "telephone2");
         dictionary.put("92000016", "source_data");
-        dictionary.put("92000017", "foto");
         dictionary.put("92000101", "kd_provinsi");
         dictionary.put("92000102", "kd_dati2");
         dictionary.put("92000103", "kd_kecamatan");
@@ -207,82 +206,87 @@ public class Dictionary {
 
 //        new
         dictionary.put("92000018", "verifiedReason");
-        dictionary.put("92040000","objekPajakId");
-        dictionary.put("92040001","subjekPajakid");
-        dictionary.put("92040002","objekId");
-        dictionary.put("92040003","jenisPajak");
-        dictionary.put("92040004","nopd");
-        dictionary.put("92040005","namaOp");
-        dictionary.put("92040006","namaJalanOp");
-        dictionary.put("92040007","rtOp");
-        dictionary.put("92040008","rwOp");
-        dictionary.put("92040009","blokKavNoOp");
-        dictionary.put("92040010","kelurahanId");
-        dictionary.put("92040011","noTelp1Op");
-        dictionary.put("92040012","noTelp2Op");
-        dictionary.put("92040013","emailOp");
-        dictionary.put("92040014","fotoOp");
-        dictionary.put("92040015","status");
-        dictionary.put("92040016","statusVerifikasi");
-        dictionary.put("92040017","verifiedReason");
-        dictionary.put("92040101","namaObjek");
-        dictionary.put("92040102","alamatObjek");
-        dictionary.put("92040103","jenisObjek");
-        dictionary.put("92040201","klasifikasiUsaha");
-        dictionary.put("92040202","statusTempatUsaha");
-        dictionary.put("92040203","jumlahKaryawan");
-        dictionary.put("92040204","kapasitasMeja");
-        dictionary.put("92040205","kapasitasKursi");
-        dictionary.put("92040206","mekanismePerhitungan");
-        dictionary.put("92040207","jumlahPengunjungPerHari");
-        dictionary.put("92040208","jumlahHariPerBulan");
-        dictionary.put("92040209","dailySales");
-        dictionary.put("92040210","omset");
-        dictionary.put("92040211","statusOnline");
-        dictionary.put("92040212","catatan");
-        dictionary.put("92040301","hotelId");
-        dictionary.put("92040302","kamarHotel");
-        dictionary.put("92040303","jumlahHari");
-        dictionary.put("92040304","tingkatHunian");
-        dictionary.put("92040401","restoranId");
-        dictionary.put("92040402","modelPelayanan");
-        dictionary.put("92040403","jamBuka");
-        dictionary.put("92040404","jamTutup");
-        dictionary.put("92040405","merekPos");
-        dictionary.put("92040406","jumlahCabang");
-        dictionary.put("92040407","isFranchise");
-        dictionary.put("92040408","transactionPerDay");
-        dictionary.put("92040409","hargaRataTransaksiPerOrang");
-        dictionary.put("92040501","parkirId");
-        dictionary.put("92040502","kapasitasMotor");
-        dictionary.put("92040503","kapasitasMobil");
-        dictionary.put("92040504","tarifParkir");
-        dictionary.put("92040505","memberMotor");
-        dictionary.put("92040506","memberMobil");
-        dictionary.put("92040507","rataLamaParkir");
-        dictionary.put("92040601","hiburanId");
-        dictionary.put("92040602","sifatUsaha");
-        dictionary.put("92040603","kapasitasRuangan");
-        dictionary.put("92040604","kapasitasMesinKeping");
-        dictionary.put("92040605","tarif");
-        dictionary.put("92040606","jamBukaPerBulan");
-        dictionary.put("92040701","reklameId");
-        dictionary.put("92040702","klasifikasiReklame");
-        dictionary.put("92040703","judulReklame");
-        dictionary.put("92040704","panjang");
-        dictionary.put("92040705","lebar");
-        dictionary.put("92040706","tinggiAmbang");
-        dictionary.put("92040707","jumlahMukaReklame");
-        dictionary.put("92040708","jumlahReklame");
-        dictionary.put("92040709","lokasiReklame");
-        dictionary.put("92040710","kontenProduk");
-        dictionary.put("92040801","airTanahId");
-        dictionary.put("92040802","jumlahMeteran");
-        dictionary.put("92040901","kdProvinsiNonPbb");
-        dictionary.put("92040902","kdDati2NonPbb");
-        dictionary.put("92040903","kdKecamatabNonPbb");
-        dictionary.put("92040904","kdKelurahanNonPbb");
+        dictionary.put("92040000", "objekPajakId");
+        dictionary.put("92040001", "subjekPajakid");
+        dictionary.put("92040002", "objekId");
+        dictionary.put("92040003", "jenisPajak");
+        dictionary.put("92040004", "nopd");
+        dictionary.put("92040005", "namaOp");
+        dictionary.put("92040006", "namaJalanOp");
+        dictionary.put("92040011", "noTelp1Op");
+        dictionary.put("92040012", "noTelp2Op");
+        dictionary.put("92040013", "emailOp");
+        dictionary.put("92040015", "status");
+        dictionary.put("92040017", "verifiedReason");
+        dictionary.put("92040101", "namaObjek");
+        dictionary.put("92040102", "alamatObjek");
+        dictionary.put("92040103", "jenisObjek");
+        dictionary.put("92040201", "klasifikasiUsaha");
+        dictionary.put("92040202", "statusTempatUsaha");
+        dictionary.put("92040203", "jumlahKaryawan");
+        dictionary.put("92040204", "kapasitasMeja");
+        dictionary.put("92040205", "kapasitasKursi");
+        dictionary.put("92040206", "mekanismePerhitungan");
+        dictionary.put("92040207", "jumlahPengunjungPerHari");
+        dictionary.put("92040208", "jumlahHariPerBulan");
+        dictionary.put("92040209", "dailySales");
+        dictionary.put("92040210", "omset");
+        dictionary.put("92040211", "statusOnline");
+        dictionary.put("92040212", "catatan");
+        dictionary.put("92040301", "hotelId");
+        dictionary.put("92040302", "kamarHotel");
+        dictionary.put("92040303", "jumlahHari");
+        dictionary.put("92040304", "tingkatHunian");
+        dictionary.put("92040401", "restoranId");
+        dictionary.put("92040402", "modelPelayanan");
+        dictionary.put("92040403", "jamBuka");
+        dictionary.put("92040404", "jamTutup");
+        dictionary.put("92040405", "merekPos");
+        dictionary.put("92040406", "jumlahCabang");
+        dictionary.put("92040407", "isFranchise");
+        dictionary.put("92040408", "transactionPerDay");
+        dictionary.put("92040409", "hargaRataTransaksiPerOrang");
+        dictionary.put("92040501", "parkirId");
+        dictionary.put("92040502", "kapasitasMotor");
+        dictionary.put("92040503", "kapasitasMobil");
+        dictionary.put("92040504", "tarifParkir");
+        dictionary.put("92040505", "memberMotor");
+        dictionary.put("92040506", "memberMobil");
+        dictionary.put("92040507", "rataLamaParkir");
+        dictionary.put("92040601", "hiburanId");
+        dictionary.put("92040602", "sifatUsaha");
+        dictionary.put("92040603", "kapasitasRuangan");
+        dictionary.put("92040604", "kapasitasMesinKeping");
+        dictionary.put("92040605", "tarif");
+        dictionary.put("92040606", "jamBukaPerBulan");
+        dictionary.put("92040701", "reklameId");
+        dictionary.put("92040702", "klasifikasiReklame");
+        dictionary.put("92040703", "judulReklame");
+        dictionary.put("92040704", "panjang");
+        dictionary.put("92040705", "lebar");
+        dictionary.put("92040706", "tinggiAmbang");
+        dictionary.put("92040707", "jumlahMukaReklame");
+        dictionary.put("92040708", "jumlahReklame");
+        dictionary.put("92040709", "lokasiReklame");
+        dictionary.put("92040710", "kontenProduk");
+        dictionary.put("92040801", "airTanahId");
+        dictionary.put("92040802", "jumlahMeteran");
 
+        return dictionary;
+    }
+
+    public static HashMap<String, String> setNonPbb() {
+        HashMap<String, String> dictionary = new HashMap<>();
+        dictionary.put("92040007", "rtOp");
+        dictionary.put("92040008", "rwOp");
+        dictionary.put("92040009", "blokKavNoOp");
+        dictionary.put("92040010", "kelurahanId");
+        dictionary.put("92040014", "fotoOp");
+        dictionary.put("92040016", "statusVerifikasi");
+        dictionary.put("92040901", "kdProvinsi");
+        dictionary.put("92040902", "kdDati2");
+        dictionary.put("92040903", "kdKecamatan");
+        dictionary.put("92040904", "kdKelurahan");
         return dictionary;
     }
 
@@ -314,7 +318,6 @@ public class Dictionary {
         return result;
     }
 
-
     public static String getKeyByValue(Context context, String value) {
         HashMap<String, String> dictionary = set();
         for (Map.Entry<String, String> entry : dictionary.entrySet()) {
@@ -325,5 +328,34 @@ public class Dictionary {
         return null;
     }
 
+
+
+    public static String getValueByKey(HashMap<String, String> dictionary ,Context context, String key) {
+        return dictionary.get(key);
+    }
+
+    public static String getValueByKey(HashMap<String, String> dictionary ,List<String> keys) {
+        String result = null;
+        if (keys != null) {
+            for (int i = 0; i < keys.size(); i++) {
+                if (TextUtils.isEmpty(result)) {
+                    result = dictionary.get(keys.get(i));
+                } else {
+                    result += ", " + dictionary.get(keys.get(i));
+                }
+
+            }
+        }
+        return result;
+    }
+
+    public static String getKeyByValue(Context context, HashMap<String, String> dictionary ,String value) {
+        for (Map.Entry<String, String> entry : dictionary.entrySet()) {
+            if (Objects.equals(value.toLowerCase(), entry.getValue().replace("_", "").toLowerCase())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
 
 }
