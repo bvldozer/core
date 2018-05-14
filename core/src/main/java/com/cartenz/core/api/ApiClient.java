@@ -28,12 +28,12 @@ public abstract class ApiClient<T> {
         interceptor.setLevel(HttpLoggingInterceptor.Level.HEADERS);
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        OkHttpClient.Builder builder = new OkHttpClient.Builder()
-                .readTimeout(readTimeOut, TimeUnit.SECONDS)
-                .connectTimeout(connectTimeOut, TimeUnit.SECONDS)
-                .addInterceptor(new MyInterceptor());
+        OkHttpClient.Builder builder = UnsafeOkhttpClient.getUnsafeOkHttpBuilder();
+        builder.readTimeout(readTimeOut, TimeUnit.SECONDS);
+        builder.connectTimeout(connectTimeOut, TimeUnit.SECONDS);
+        builder.addInterceptor(new MyInterceptor());
         if (debug) {
-            builder.addInterceptor(interceptor); //  todo for debug
+            builder.addInterceptor(interceptor);
         }
         OkHttpClient client = builder.build();
 
