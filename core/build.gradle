@@ -30,29 +30,29 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    api "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    api "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    api "com.android.support:design:$rootProject.supportLibraryVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
-    implementation "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
-    implementation('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
+    api "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
+    api "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
+    api('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
         exclude module: 'stax-api'
         exclude module: 'stax'
         exclude module: 'xpp3'
     }
-    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpInterceptionVersion"
-    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpInterceptionVersion"
+    api "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
 }

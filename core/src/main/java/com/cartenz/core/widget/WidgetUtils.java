@@ -1,4 +1,4 @@
-package com.cartenz.core.utils;
+package com.cartenz.core.widget;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.TextView;
  * Created by pratama on 3/17/2018.
  */
 
-public class WizardUtils {
+public class WidgetUtils {
 
 
     //start edittext

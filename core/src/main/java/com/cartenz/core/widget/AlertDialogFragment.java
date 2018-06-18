@@ -1,4 +1,4 @@
-package com.cartenz.core.base;
+package com.cartenz.core.widget;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
