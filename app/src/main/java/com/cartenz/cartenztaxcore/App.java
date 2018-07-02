@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.cartenz.cartenztaxcore.api.BaseApiClient;
 import com.cartenz.cartenztaxcore.feature.utils.ApiConstant;
-import com.cartenz.core.utils.Dictionary;
 
 public class App extends Application {
 
