@@ -23,6 +23,8 @@ ext {
     compileSdkVersion = 27
     buildToolsVersion = '26.0.2'
 
+    cartenzcore = '0.1.3'
+
     // App dependencies
     supportLibraryVersion = '27.1.1'
     junitVersion = '4.12'
