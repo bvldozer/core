@@ -1,6 +1,6 @@
 package com.cartenz.cartenztaxcore.api.repository;
 
-import com.cartenz.cartenztaxcore.api.ApiClient;
+import com.cartenz.cartenztaxcore.api.BaseApiClient;
 import com.cartenz.cartenztaxcore.api.dao.LoginDao;
 import com.google.gson.JsonObject;
 
@@ -15,9 +15,9 @@ import rx.Observable;
 public class LoginRepository {
     private String username;
     private String password;
-    private ApiClient apiClient;
+    private BaseApiClient apiClient;
 
-    public LoginRepository(ApiClient apiClient, String username, String password) {
+    public LoginRepository(BaseApiClient apiClient, String username, String password) {
         this.apiClient = apiClient;
         this.username = username;
         this.password = password;

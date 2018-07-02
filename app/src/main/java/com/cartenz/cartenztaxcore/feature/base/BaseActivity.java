@@ -2,9 +2,8 @@ package com.cartenz.cartenztaxcore.feature.base;
 
 import android.os.Build;
 import android.support.v7.widget.Toolbar;
-import android.view.Window;
 
-import com.cartenz.core.utils.CheckPermission;
+import com.cartenz.helper.CheckPermission;
 import com.google.gson.Gson;
 
 import java.util.Arrays;

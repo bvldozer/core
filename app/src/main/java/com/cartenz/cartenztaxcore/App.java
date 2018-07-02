@@ -2,7 +2,7 @@ package com.cartenz.cartenztaxcore;
 
 import android.app.Application;
 
-import com.cartenz.cartenztaxcore.api.ApiClient;
+import com.cartenz.cartenztaxcore.api.BaseApiClient;
 import com.cartenz.cartenztaxcore.feature.utils.ApiConstant;
 import com.cartenz.core.utils.Dictionary;
 
@@ -25,8 +25,8 @@ public class App extends Application {
         super.onLowMemory();
     }
 
-    public static ApiClient getApi() {
-        return new ApiClient(ApiConstant.BASEURL);
+    public static BaseApiClient getApi() {
+        return new BaseApiClient(ApiConstant.BASEURL);
     }
 
     public static App getInstance() {

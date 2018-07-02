@@ -1,6 +1,6 @@
 package com.cartenz.cartenztaxcore.api.repository;
 
-import com.cartenz.cartenztaxcore.api.ApiClient;
+import com.cartenz.cartenztaxcore.api.BaseApiClient;
 import com.cartenz.cartenztaxcore.api.dao.SimpleStringDao;
 import com.google.gson.JsonObject;
 
@@ -14,9 +14,9 @@ import rx.Observable;
 
 public class ForgotPassRepository {
     private String email;
-    private ApiClient apiClient;
+    private BaseApiClient apiClient;
 
-    public ForgotPassRepository(ApiClient apiClient, String email) {
+    public ForgotPassRepository(BaseApiClient apiClient, String email) {
         this.apiClient = apiClient;
         this.email = email;
     }
