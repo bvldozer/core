@@ -34,13 +34,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     api "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     api "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     api "com.android.support:design:$rootProject.supportLibraryVersion"
-
-    testImplementation "junit:junit:$rootProject.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.runner"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso"
-
 }

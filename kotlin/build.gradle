@@ -44,18 +44,7 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso"
     api "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersion"
     api "io.reactivex:rxjava:$rootProject.ext.rxJavaVersion"
-    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.retrofitVersion"
-    api('com.squareup.retrofit2:converter-simplexml:2.0.0-beta4') {
-        exclude module: 'stax-api'
-        exclude module: 'stax'
-        exclude module: 'xpp3'
-    }
-    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpInterceptionVersion"
     api "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    api project(':design')
-    api project(':helper')
 }
 
 kapt {

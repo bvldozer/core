@@ -5,11 +5,10 @@ package com.cartenz.cartenztaxcore.feature.forgot;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.cartenz.cartenztaxcore.App;
 import com.cartenz.cartenztaxcore.api.dao.SimpleStringDao;
 import com.cartenz.cartenztaxcore.api.repository.ForgotPassRepository;
-import com.cartenz.core.api.MySubscriber;
-import com.cartenz.core.base.BaseSubscriber;
+import com.cartenz.core.BaseSubscriber;
+import com.cartenz.kotlin_core.api.MySubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -31,7 +30,7 @@ final class ForgotPresenter extends BaseSubscriber implements ForgotContract.Pre
 
     @Override
     public void callForgot(String email) {
-        ForgotPassRepository repo = new ForgotPassRepository(App.getApi(), email);
+        ForgotPassRepository repo = new ForgotPassRepository(email);
         addSubscription(repo.post().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MySubscriber<SimpleStringDao>() {

@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends com.cartenz.core.base.BaseActivity {
+public abstract class BaseActivity extends com.cartenz.core.BaseActivity {
 
     public Toolbar toolbar;
 

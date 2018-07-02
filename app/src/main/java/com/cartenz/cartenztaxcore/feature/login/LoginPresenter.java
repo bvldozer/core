@@ -5,11 +5,10 @@ package com.cartenz.cartenztaxcore.feature.login;
 import android.content.Context;
 import android.support.annotation.Nullable;
 
-import com.cartenz.cartenztaxcore.App;
 import com.cartenz.cartenztaxcore.api.dao.LoginDao;
 import com.cartenz.cartenztaxcore.api.repository.LoginRepository;
-import com.cartenz.core.api.MySubscriber;
-import com.cartenz.core.base.BaseSubscriber;
+import com.cartenz.core.BaseSubscriber;
+import com.cartenz.kotlin_core.api.MySubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -32,7 +31,7 @@ final class LoginPresenter extends BaseSubscriber implements LoginContract.Prese
 
     @Override
     public void callLogin(String username, String password) {
-        LoginRepository repo = new LoginRepository(App.getApi(), username, password);
+        LoginRepository repo = new LoginRepository(username, password);
         addSubscription(repo.post().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new MySubscriber<LoginDao>() {

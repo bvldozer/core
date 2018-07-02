@@ -1,36 +1,41 @@
 package com.cartenz.cartenztaxcore;
 
-import android.app.Application;
+import android.support.annotation.NonNull;
 
-import com.cartenz.cartenztaxcore.api.BaseApiClient;
+import com.cartenz.cartenz.CartenzApp;
+import com.cartenz.cartenztaxcore.api.ApiInterface;
 import com.cartenz.cartenztaxcore.feature.utils.ApiConstant;
 
-public class App extends Application {
+import org.jetbrains.annotations.NotNull;
 
-    private static App instance;
+public class App extends CartenzApp {
 
-    public App() {
-        instance = this;
+    @Override
+    protected void initBaseCreate() {
+
+    }
+
+    @NonNull
+    @Override
+    protected Class<?> setApiInterface() {
+        return ApiInterface.class;
+    }
+
+    @NotNull
+    @Override
+    protected String setBaseUrl() {
+        return ApiConstant.BASEURL;
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-
+    protected boolean isDebug() {
+        return true;
     }
 
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
+    public static ApiInterface getApiInterface() {
+        return (ApiInterface) App.Companion.getApi();
     }
 
-    public static BaseApiClient getApi() {
-        return new BaseApiClient(ApiConstant.BASEURL);
-    }
-
-    public static App getInstance() {
-        return instance;
-    }
 
 
 }

@@ -55,4 +55,8 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     implementation project(':java')
+    implementation project(':cartenz')
+    implementation project(':design')
+    implementation project(':helper')
+
 }

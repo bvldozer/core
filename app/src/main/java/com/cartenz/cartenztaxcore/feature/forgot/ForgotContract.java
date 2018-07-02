@@ -1,8 +1,8 @@
 package com.cartenz.cartenztaxcore.feature.forgot;
 
 
-import com.cartenz.core.base.BasePresenter;
-import com.cartenz.core.base.BaseView;
+import com.cartenz.core.BasePresenter;
+import com.cartenz.core.BaseView;
 
 public interface ForgotContract {
     interface View extends BaseView<PresenterInterface> {

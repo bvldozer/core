@@ -3,7 +3,7 @@ package com.cartenz.cartenztaxcore.feature.base;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment extends com.cartenz.core.base.BaseFragment {
+public abstract class BaseFragment extends com.cartenz.core.BaseFragment {
     private Unbinder unbinder;
 
     @Override
