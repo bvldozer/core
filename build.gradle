@@ -20,12 +20,15 @@ ext {
     // Sdk and tools
     minSdkVersion = 21
     targetSdkVersion = 26
-    compileSdkVersion = 26
+    compileSdkVersion = 27
     buildToolsVersion = '26.0.2'
 
     // App dependencies
     supportLibraryVersion = '27.1.1'
     junitVersion = '4.12'
+
+    runner = '1.0.1'
+    espresso = '3.0.1'
 
     playServiceVersion = '11.4.0'
 
