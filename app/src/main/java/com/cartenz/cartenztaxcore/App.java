@@ -33,7 +33,7 @@ public class App extends CartenzApp {
     }
 
     public static ApiInterface getApiInterface() {
-        return (ApiInterface) App.Companion.getApi();
+        return (ApiInterface) CartenzApp.Companion.getApi();
     }
 
 

@@ -3,7 +3,7 @@ package com.cartenz.kotlin_core
 import rx.Subscription
 import java.util.*
 
-public class BaseSubscriber {
+abstract class BaseSubscriber {
 
     companion object {
         private val subscriptions = ArrayList<Subscription>()
