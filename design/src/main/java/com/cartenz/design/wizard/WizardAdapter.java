@@ -45,9 +45,9 @@ public class WizardAdapter extends RecyclerView.Adapter<WizardAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        int grey = R.drawable.shape_round_square_grey;
-        int blue_soft = R.drawable.shape_round_square_blue_soft;
-        int blue = R.drawable.shape_round_square_blue;
+        int grey = R.drawable.shape_square_rounded_grey;
+        int blue_soft = R.drawable.shape_square_rounded_blue_soft;
+        int blue = R.drawable.shape_square_rounded_blue;
         int drawable = grey;
         if (titles.get(position).getType() == 1) {
             drawable = blue_soft;

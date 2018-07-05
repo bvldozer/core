@@ -8,6 +8,12 @@
     </declare-styleable>
 
 
+    <declare-styleable name="CustomTextInputLayout">
+        <attr name="errorBackgroundColor" format="color" />
+        <attr name="errorTextColor" format="color" />
+    </declare-styleable>
+
+
     <declare-styleable name="ImageViewMeasurement">
         <attr name="width_divider" format="integer" />
         <attr name="height_divider" format="integer" />

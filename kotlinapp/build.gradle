@@ -43,10 +43,10 @@ dependencies {
 
     implementation project(':kotlin')
 //    implementation project(':cartenz')
-//    implementation project(':design')
+    implementation project(':design')
 //    implementation project(':helper')
 
-    implementation "com.github.pratamacartenz.core:design:$rootProject.cartenzcore"
+//    implementation "com.github.pratamacartenz.core:design:$rootProject.cartenzcore"
     implementation "com.github.pratamacartenz.core:cartenz:$rootProject.cartenzcore"
     implementation "com.github.pratamacartenz.core:helper:$rootProject.cartenzcore"
 //    implementation "com.github.pratamacartenz.core:kotlin:$rootProject.cartenzcore"
