@@ -1,4 +1,4 @@
-package com.cartenz.helper;
+package com.cartenz.design.image;
 
 import android.content.Context;
 import android.text.TextUtils;

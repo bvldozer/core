@@ -2,7 +2,6 @@ package com.cartenz.design.TextLayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
@@ -14,10 +13,9 @@ import com.cartenz.design.R;
 import com.cartenz.design.UnitHelper;
 
 public class CustomTextInputLayout extends TextInputLayout implements TextInputListener {
-    private static final int DEFAULT_BACKGROUND_COLOR = Color.TRANSPARENT;
-    private static final int DEFAULT_TEXT_COLOR = Color.RED;
-    private int errorBackgroundColor = DEFAULT_BACKGROUND_COLOR;
+    private int errorBackgroundColor;
     private int errorTextColor;
+    private boolean errorEnabled;
     private TextView tvError;
 
     public CustomTextInputLayout(Context context) {
@@ -38,38 +36,43 @@ public class CustomTextInputLayout extends TextInputLayout implements TextInputL
 
     private void setBackground(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTextInputLayout, defStyleAttr, 0);
-        errorBackgroundColor = typedArray.getColor(R.styleable.CustomTextInputLayout_errorBackgroundColor, DEFAULT_BACKGROUND_COLOR);
+        errorEnabled = typedArray.getBoolean(android.support.design.R.styleable.TextInputLayout_errorEnabled, false);
+        errorBackgroundColor = typedArray.getColor(R.styleable.CustomTextInputLayout_errorBackgroundColor, 0);
         errorTextColor = typedArray.getColor(R.styleable.CustomTextInputLayout_errorTextColor, ContextCompat.getColor(getContext(), R.color.red_1));
-        int dp = UnitHelper.dpToInt(8);
+
+        int dp = UnitHelper.dpToInt(4);
         setPadding(0, dp, 0, 0);
         setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_layout));
+        setErrorEnabled(errorEnabled);
     }
 
     @Override
     public void setErrorEnabled(boolean enabled) {
         if (enabled) {
             try {
-
-                int dp = UnitHelper.dpToInt(8);
-
-                if (errorTextColor == 0) {
-                    errorTextColor = ContextCompat.getColor(getContext(), R.color.red_1);
+                if (errorTextColor != 0 || errorBackgroundColor != 0) {
+                    int dp = UnitHelper.dpToInt(8);
+                    if (errorTextColor == 0) {
+                        errorTextColor = ContextCompat.getColor(getContext(), R.color.red_1);
+                    }
+                    if (errorBackgroundColor == 0) {
+                        errorBackgroundColor = ContextCompat.getColor(getContext(), R.color.white_3);
+                    }
+                    CustomTextInputLayout customTextInputLayout = (CustomTextInputLayout) getRootView();
+                    tvError = new AppCompatTextView(getContext());
+                    tvError.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+                    tvError.setPadding(dp, dp, dp, dp);
+                    tvError.setTextColor(errorTextColor);
+                    tvError.setBackgroundColor(errorBackgroundColor);
+                    customTextInputLayout.addView(tvError);
                 }
-
-                CustomTextInputLayout customTextInputLayout = (CustomTextInputLayout) getRootView();
-                tvError = new AppCompatTextView(getContext());
-                tvError.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-                tvError.setPadding(dp, dp, dp, dp);
-                tvError.setTextColor(errorTextColor);
-                tvError.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white_1));
-                customTextInputLayout.addView(tvError);
-
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
         }
 
     }
+
 
     public int getErrorBackgroundColor() {
         return errorBackgroundColor;

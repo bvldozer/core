@@ -17,14 +17,12 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         loginPresenter = LoginPresenter()
         loginPresenter!!.setView(this, this)
 
-//        et_test.error = "error"
 
         btn_login.setOnClickListener {
             var isValid = true
             val error = "Harus Terisi"
             et_email!!.error = null
             et_password!!.error = null
-            et_test!!.error = null
 
             if (TextUtils.isEmpty(et_email!!.text)) {
                 et_email!!.error = error
@@ -35,10 +33,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
                 isValid = false
             }
 
-            if (TextUtils.isEmpty(et_test!!.text)) {
-                et_test!!.error = error
-                isValid = false
-            }
 
 
             if (isValid) {

@@ -13,6 +13,11 @@
         <attr name="errorTextColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="CustomTextInputEditText">
+        <attr name="units" format="string" />
+        <attr name="unitsTextColor" format="color" />
+    </declare-styleable>
+
 
     <declare-styleable name="ImageViewMeasurement">
         <attr name="width_divider" format="integer" />
