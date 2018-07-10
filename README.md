@@ -47,7 +47,7 @@ berisi base untuk aplikasi yang meliputi
 "com.github.pratamacartenz.core:kotlin:$rootProject.cartenzcore"
 
 # Change Log
-* 0.16
+* 0.1.6
   - rename for kotlin base
   - custom spinner
 
