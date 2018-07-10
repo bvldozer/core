@@ -16,7 +16,7 @@ Core dari aplikasi cartenz
 base design cartenz : image, textview, button, pageindicator, custom-widget
 * Image : circleimageview, imagehelper ( glide ), ImageViewMeasurement
 * PageIndicator : CirclePageIndicator
-* TextLayout : CustomTextInputEditText, CustomTextInputLayout
+* TextLayout : CustomTextInputEditText, CustomTextInputLayout, Custom Spinner
 * Wizard
 * AlertDialogFragment
 * EndlessScrollView
