@@ -7,31 +7,17 @@ abstract class CartenzApp : Application() {
 
     companion object {
         private lateinit var instance: CartenzApp
-        lateinit var apiInterface: Any
-        fun getApi(): Any {
-            return apiInterface
+        fun setApi(interfaceClass: Class<*>, baseUrl: String, isDebug: Boolean): Any {
+            return BaseApiClient.ApiClient(interfaceClass, baseUrl, 5, 5, isDebug)!!
         }
     }
-
 
     override fun onCreate() {
         super.onCreate()
         instance = this
-        setApi()
         initBaseCreate()
     }
 
-
-    fun setApi() {
-        apiInterface = BaseApiClient.ApiClient(setApiInterface(), setBaseUrl(), 5, 5, isDebug())!!
-    }
-
-
-    protected abstract fun setApiInterface(): Class<*>
-
-    protected abstract fun setBaseUrl(): String
-
-    protected abstract fun isDebug(): Boolean
 
     protected abstract fun initBaseCreate()
 
