@@ -5,13 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
 import com.cartenz.kotlinapp.R
-import com.cartenz.kotlinapp.feature.base.BaseActivity
+import com.cartenz.kotlinapp.feature.base.BaseActvity
 import kotlinx.android.synthetic.main.forget_pass_activity.*
 
-class ForgotActivity : BaseActivity(), ForgotContract.View {
+class ForgotActivity : BaseActvity(), ForgotContract.ViewCartenz {
 
     private var forgotPresenter: ForgotPresenter? = null
     private var progressDialog: ProgressDialog? = null

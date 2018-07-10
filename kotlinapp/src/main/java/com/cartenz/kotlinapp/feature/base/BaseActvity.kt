@@ -6,7 +6,7 @@ import com.cartenz.helper.CheckPermission
 import com.google.gson.Gson
 import java.util.*
 
-abstract class BaseActivity : com.cartenz.kotlin_core.BaseActivity() {
+abstract class BaseActvity : com.cartenz.kotlin_core.CartenzBaseActivity() {
 
     var toolbar: Toolbar? = null
 

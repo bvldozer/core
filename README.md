@@ -22,23 +22,23 @@ base design cartenz : image, textview, button, pageindicator, custom-widget
 * EndlessScrollView
 * FixAppBarLayoutBehavior ( fix bug for nestedscrollvview with AppBarLayout )
 * UnitHelper ( dp to px, px to dp )
-* WidgetUtils : editTextIsEmpty(EditText editText, String error), spinnerIsEmpty(Spinner spinner, int notSelectedPosition, TextView textError, String error), disableView(View view),enableView(View view)
+* ViewHelper : editTextIsEmpty(EditText editText, String error), spinnerIsEmpty(Spinner spinner, int notSelectedPosition, TextView textError, String error), disableView(View view),enableView(View view)
 
 # 3. helper
 * CheckPermission : check(List requestList) : CAMERA, NETWORK, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, READ_PHONE_STORAGE, LOCATION, VIBRATE
 * CurrencyHelper
 * DateHelper
-* FileUtils
-* HelperUtils : dpToPx, hideKeyboard, isMyServiceRunning, getGenerateId
+* FileHelper
+* CommonHelper : dpToPx, hideKeyboard, isMyServiceRunning, getGenerateId
 * PrefHelper
 
 # 4. kotlin
 berisi base untuk aplikasi yang meliputi
-* BaseActivity
-* BaseFragment
-* BasePresenter
-* BaseSubscriber
-* BaseView
+* CartenzBaseActivity
+* CartenzBaseFragment
+* CartenzBasePresenter
+* CartenzBaseSubscriber
+* CartenzBaseView
 
 # Cara Pakai
 "com.github.pratamacartenz.core:design:$rootProject.cartenzcore"

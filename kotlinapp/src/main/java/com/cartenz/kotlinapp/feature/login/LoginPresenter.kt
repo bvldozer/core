@@ -1,19 +1,19 @@
 package com.cartenz.kotlinapp.feature.login
 
 import android.content.Context
-import com.cartenz.kotlin_core.BaseSubscriber
+import com.cartenz.kotlin_core.CartenzBaseSubscriber
 import com.cartenz.kotlin_core.api.MySubscriber
 import com.cartenz.kotlinapp.api.dao.LoginDao
 import com.cartenz.kotlinapp.api.repository.LoginRepository
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-internal class LoginPresenter : BaseSubscriber(), LoginContract.PresenterInterface {
+internal class LoginPresenter : CartenzBaseSubscriber(), LoginContract.PresenterInterfaceCartenz {
 
-    private var mLoginView: LoginContract.View? = null
+    private var mLoginView: LoginContract.ViewCartenz? = null
     private var context: Context? = null
 
-    override fun setView(context: Context, view: LoginContract.View) {
+    override fun setView(context: Context, view: LoginContract.ViewCartenz) {
         this.context = context
         this.mLoginView = view
     }

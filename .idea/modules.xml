@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cartenz/cartenz.iml" filepath="$PROJECT_DIR$/cartenz/cartenz.iml" />
       <module fileurl="file://$PROJECT_DIR$/cartenztaxcore.iml" filepath="$PROJECT_DIR$/cartenztaxcore.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/core.iml" filepath="$PROJECT_DIR$/.idea/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/design/design.iml" filepath="$PROJECT_DIR$/design/design.iml" />
       <module fileurl="file://$PROJECT_DIR$/helper/helper.iml" filepath="$PROJECT_DIR$/helper/helper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java/java.iml" filepath="$PROJECT_DIR$/java/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlin/kotlin.iml" filepath="$PROJECT_DIR$/kotlin/kotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/kotlinapp/kotlinapp.iml" filepath="$PROJECT_DIR$/kotlinapp/kotlinapp.iml" />
     </modules>

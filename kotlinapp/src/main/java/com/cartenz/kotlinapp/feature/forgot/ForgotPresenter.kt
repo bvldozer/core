@@ -1,19 +1,19 @@
 package com.cartenz.kotlinapp.feature.forgot
 
 import android.content.Context
-import com.cartenz.kotlin_core.BaseSubscriber
+import com.cartenz.kotlin_core.CartenzBaseSubscriber
 import com.cartenz.kotlin_core.api.MySubscriber
 import com.cartenz.kotlinapp.api.dao.SimpleStringDao
 import com.cartenz.kotlinapp.api.repository.ForgotPassRepository
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-internal class ForgotPresenter : BaseSubscriber(), ForgotContract.PresenterInterface {
+internal class ForgotPresenter : CartenzBaseSubscriber(), ForgotContract.PresenterInterfaceCartenz {
 
-    private var mForgotView: ForgotContract.View? = null
+    private var mForgotView: ForgotContract.ViewCartenz? = null
     private var context: Context? = null
 
-    override fun setView(context: Context, view: ForgotContract.View) {
+    override fun setView(context: Context, view: ForgotContract.ViewCartenz) {
         this.context = context
         this.mForgotView = view
     }

@@ -8,7 +8,7 @@
     android:padding="@dimen/dimens_16dp">
 
 
-    <com.cartenz.design.TextLayout.CustomTextInputLayout
+    <com.cartenz.design.textlayout.CustomTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimens_16dp"
@@ -17,16 +17,16 @@
         app:errorBackgroundColor="@color/white_1"
         app:errorEnabled="true">
 
-        <com.cartenz.design.TextLayout.CustomTextInputEditText
+        <com.cartenz.design.textlayout.CustomTextInputEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
             app:units="\@gmail.com" />
 
-    </com.cartenz.design.TextLayout.CustomTextInputLayout>
+    </com.cartenz.design.textlayout.CustomTextInputLayout>
 
-    <com.cartenz.design.TextLayout.CustomTextInputLayout
+    <com.cartenz.design.textlayout.CustomTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimens_16dp"
@@ -37,17 +37,17 @@
         app:errorTextColor="@color/red_1"
         app:passwordToggleEnabled="true">
 
-        <com.cartenz.design.TextLayout.CustomTextInputEditText
+        <com.cartenz.design.textlayout.CustomTextInputEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:singleLine="true" />
 
-    </com.cartenz.design.TextLayout.CustomTextInputLayout>
+    </com.cartenz.design.textlayout.CustomTextInputLayout>
 
 
-    <com.cartenz.design.TextLayout.CustomTextInputLayout
+    <com.cartenz.design.textlayout.CustomTextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimens_16dp"
@@ -57,13 +57,13 @@
         app:errorEnabled="true"
         app:errorTextColor="@color/red_1">
 
-        <com.cartenz.design.TextLayout.CustomSpinner
+        <com.cartenz.design.textlayout.CustomSpinner
             android:id="@+id/sp_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true" />
 
-    </com.cartenz.design.TextLayout.CustomTextInputLayout>
+    </com.cartenz.design.textlayout.CustomTextInputLayout>
 
     <Button
         android:id="@+id/btn_login"

@@ -1,15 +1,15 @@
 package com.cartenz.kotlinapp.feature.forgot
 
-import com.cartenz.kotlin_core.BasePresenter
-import com.cartenz.kotlin_core.BaseView
+import com.cartenz.kotlin_core.CartenzBasePresenter
+import com.cartenz.kotlin_core.CartenzBaseView
 
 interface ForgotContract {
-    interface View : BaseView<PresenterInterface> {
+    interface ViewCartenz : CartenzBaseView<PresenterInterfaceCartenz> {
         fun forgotResult(error: String)
 
     }
 
-    interface PresenterInterface : BasePresenter<View> {
+    interface PresenterInterfaceCartenz : CartenzBasePresenter<ViewCartenz> {
         fun callForgot(email: String)
     }
 }

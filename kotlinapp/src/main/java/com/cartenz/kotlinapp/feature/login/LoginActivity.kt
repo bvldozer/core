@@ -3,11 +3,11 @@ package com.cartenz.kotlinapp.feature.login
 import android.text.TextUtils
 import android.widget.ArrayAdapter
 import com.cartenz.kotlinapp.R
-import com.cartenz.kotlinapp.feature.base.BaseActivity
+import com.cartenz.kotlinapp.feature.base.BaseActvity
 import kotlinx.android.synthetic.main.login_activity.*
 
 
-class LoginActivity : BaseActivity(), LoginContract.View {
+class LoginActivity : BaseActvity(), LoginContract.ViewCartenz {
 
     private var loginPresenter: LoginPresenter? = null
 
