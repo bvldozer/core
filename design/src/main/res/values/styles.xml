@@ -42,19 +42,19 @@
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="CustomEditTextBox" parent="Widget.AppCompat.EditText">
-        <item name="android:padding">@dimen/padding_medium</item>
-    </style>
+    <!--<style name="CustomEditTextBox" parent="Widget.AppCompat.EditText">-->
+        <!--<item name="android:padding">@dimen/padding_medium</item>-->
+    <!--</style>-->
 
-    <style name="CustomTextInputLayout" parent="Widget.Design.TextInputLayout">
-        <item name="android:paddingTop">@dimen/dimens_8dp</item>
-    </style>
+    <!--<style name="CustomTextInputLayout" parent="Widget.Design.TextInputLayout">-->
+        <!--<item name="android:paddingTop">@dimen/dimens_8dp</item>-->
+    <!--</style>-->
 
-    <style name="CustomTextInputEditText" parent="CustomEditTextBox">
-        <item name="android:background">@drawable/shape_text_input_edittext</item>
-        <item name="android:textColor">@color/black_3</item>
-        <item name="android:padding">@dimen/dimens_8dp</item>
-    </style>
+    <!--<style name="CustomTextInputEditText" parent="CustomEditTextBox">-->
+        <!--<item name="android:background">@drawable/shape_text_input_edittext</item>-->
+        <!--<item name="android:textColor">@color/black_3</item>-->
+        <!--<item name="android:padding">@dimen/dimens_8dp</item>-->
+    <!--</style>-->
 
 
 </resources>

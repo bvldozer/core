@@ -47,6 +47,24 @@
     </com.cartenz.design.TextLayout.CustomTextInputLayout>
 
 
+    <com.cartenz.design.TextLayout.CustomTextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_16dp"
+        android:hint="Spinner"
+        android:orientation="vertical"
+        app:errorBackgroundColor="@color/white_1"
+        app:errorEnabled="true"
+        app:errorTextColor="@color/red_1">
+
+        <com.cartenz.design.TextLayout.CustomSpinner
+            android:id="@+id/sp_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true" />
+
+    </com.cartenz.design.TextLayout.CustomTextInputLayout>
+
     <Button
         android:id="@+id/btn_login"
         style="@style/CustomButton.Blue"
@@ -54,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimens_24dp"
         android:text="login" />
-
 
 
     <RelativeLayout

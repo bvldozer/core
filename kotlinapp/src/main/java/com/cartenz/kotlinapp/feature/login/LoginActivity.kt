@@ -1,9 +1,11 @@
 package com.cartenz.kotlinapp.feature.login
 
 import android.text.TextUtils
+import android.widget.ArrayAdapter
 import com.cartenz.kotlinapp.R
 import com.cartenz.kotlinapp.feature.base.BaseActivity
 import kotlinx.android.synthetic.main.login_activity.*
+
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 
@@ -17,12 +19,23 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         loginPresenter = LoginPresenter()
         loginPresenter!!.setView(this, this)
 
+        var selectedPosition: Int
+        var selectedText: String
+
+
+        val arrays = arrayOf("test1", "test2")
+        val arrayAdapter = ArrayAdapter(
+                this, android.R.layout.simple_list_item_1, arrays)
+        sp_spinner.setAdapter(arrayAdapter)
+//        sp_spinner.setSelectedPosition(1)
+
 
         btn_login.setOnClickListener {
             var isValid = true
             val error = "Harus Terisi"
             et_email!!.error = null
             et_password!!.error = null
+            sp_spinner!!.error = null
 
             if (TextUtils.isEmpty(et_email!!.text)) {
                 et_email!!.error = error
@@ -33,6 +46,10 @@ class LoginActivity : BaseActivity(), LoginContract.View {
                 isValid = false
             }
 
+            if (sp_spinner!!.selectedPosition == -1) {
+                sp_spinner!!.error = error
+                isValid = false
+            }
 
 
             if (isValid) {
