@@ -75,7 +75,11 @@ public class CustomTextInputEditText extends TextInputEditText {
                 if (unitDrawable != null) {
                     unitDrawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(getContext(), R.color.red_1), PorterDuff.Mode.SRC_IN));
                 }
-                setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
+                if(error == null){
+                    setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
+                }else {
+                    setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
+                }
                 CustomTextInputLayout customTextInputLayout = ((CustomTextInputLayout) parent);
                 customTextInputLayout.setTextErrorInputLayout(error);
                 requestFocus();
