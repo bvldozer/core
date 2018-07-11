@@ -8,15 +8,17 @@
     </declare-styleable>
 
 
-    <declare-styleable name="CustomTextInputLayout">
+    <declare-styleable name="CustomInputLayout">
         <attr name="errorBackgroundColor" format="color" />
         <attr name="errorTextColor" format="color" />
-    </declare-styleable>
-
-    <declare-styleable name="CustomTextInputEditText">
+        <attr name="errorEnable" format="boolean" />
+        <attr name="isSpinner" format="boolean" />
+        <attr name="error" format="string" />
+        <attr name="hint" format="string" />
         <attr name="units" format="string" />
         <attr name="unitsTextColor" format="color" />
     </declare-styleable>
+
 
 
     <declare-styleable name="ImageViewMeasurement">

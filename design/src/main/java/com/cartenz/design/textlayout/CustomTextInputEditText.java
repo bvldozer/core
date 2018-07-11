@@ -43,9 +43,9 @@ public class CustomTextInputEditText extends TextInputEditText {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTextInputEditText, defStyleAttr, 0);
-        units = typedArray.getString(R.styleable.CustomTextInputEditText_units);
-        unitsTextColor = typedArray.getColor(R.styleable.CustomTextInputLayout_errorTextColor, DEFAULT);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInputLayout, defStyleAttr, 0);
+        units = typedArray.getString(R.styleable.CustomInputLayout_units);
+        unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsTextColor, DEFAULT);
 
         setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
         int dp = UnitHelper.dpToInt(8);
@@ -54,37 +54,44 @@ public class CustomTextInputEditText extends TextInputEditText {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 setError(null);
-                if (unitDrawable != null) {
-                    unitDrawable.setColorFilter(new PorterDuffColorFilter(unitsTextColor, PorterDuff.Mode.SRC_IN));
+                try {
+                    ViewParent parent = getParent().getParent().getParent();
+                    if (parent instanceof CustomInputLayout) {
+                        CustomInputLayout linearLayout = ((CustomInputLayout) parent);
+                        linearLayout.setTvError(null);
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 }
                 setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
                 return false;
             }
         });
 
-        setUnits(units);
+        setUnits(units, unitsTextColor);
 
     }
 
 
     @Override
     public void setError(CharSequence error) {
+        requestFocus();
         try {
-            ViewParent parent = getParent().getParent();
-            if (parent instanceof TextInputListener) {
+            if (error == null) {
+                setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
+                if (unitDrawable != null) {
+                    if (unitsTextColor == DEFAULT) {
+                        unitsTextColor = ContextCompat.getColor(getContext(), R.color.black_2);
+                    }
+                    unitDrawable.setColorFilter(new PorterDuffColorFilter(unitsTextColor, PorterDuff.Mode.SRC_IN));
+                }
+            } else {
+                setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
                 if (unitDrawable != null) {
                     unitDrawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(getContext(), R.color.red_1), PorterDuff.Mode.SRC_IN));
                 }
-                if(error == null){
-                    setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
-                }else {
-                    setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
-                }
-                CustomTextInputLayout customTextInputLayout = ((CustomTextInputLayout) parent);
-                customTextInputLayout.setTextErrorInputLayout(error);
-                requestFocus();
-                return;
             }
+            return;
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -92,6 +99,10 @@ public class CustomTextInputEditText extends TextInputEditText {
     }
 
     public void setUnits(String string) {
+        setUnits(string, DEFAULT);
+    }
+
+    public void setUnits(String string, int unitsTextColor) {
         try {
             if (!TextUtils.isEmpty(string)) {
                 int width = string.length() * 24;

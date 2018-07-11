@@ -1,8 +1,11 @@
 package com.cartenz.kotlinapp.feature.login
 
 import android.text.TextUtils
+import android.util.Log
 import android.widget.ArrayAdapter
+import com.cartenz.design.textlayout.CustomTextInputEditText
 import com.cartenz.kotlinapp.R
+import com.cartenz.kotlinapp.R.id.et_test
 import com.cartenz.kotlinapp.feature.base.BaseActvity
 import kotlinx.android.synthetic.main.login_activity.*
 
@@ -27,6 +30,7 @@ class LoginActivity : BaseActvity(), LoginContract.ViewCartenz {
         val arrayAdapter = ArrayAdapter(
                 this, android.R.layout.simple_list_item_1, arrays)
         sp_spinner.setAdapter(arrayAdapter)
+        sp_test.setAdapter(arrayAdapter)
 //        sp_spinner.setSelectedPosition(1)
 
 
@@ -36,6 +40,19 @@ class LoginActivity : BaseActvity(), LoginContract.ViewCartenz {
             et_email!!.error = null
             et_password!!.error = null
             sp_spinner!!.error = null
+            et_test!!.setError(null)
+            sp_test!!.setError(null)
+
+
+            if (TextUtils.isEmpty(et_test!!.text)) {
+                et_test!!.setError(error)
+                isValid = false
+            }
+
+            if(sp_test!!.selectedPosition == -1){
+                sp_test!!.setError(error)
+                isValid = false
+            }
 
             if (TextUtils.isEmpty(et_email!!.text)) {
                 et_email!!.error = error

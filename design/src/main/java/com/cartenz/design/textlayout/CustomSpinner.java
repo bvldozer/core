@@ -55,12 +55,22 @@ public class CustomSpinner extends android.support.v7.widget.AppCompatAutoComple
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    ViewParent parent = getParent().getParent().getParent();
+                    if (parent instanceof CustomInputLayout) {
+                        CustomInputLayout linearLayout = ((CustomInputLayout) parent);
+                        linearLayout.setTvError(null);
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
                 CustomSpinner.this.setError(null);
                 CustomSpinner.this.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_drop_down_blue_24dp, 0);
                 if (!TextUtils.isEmpty(CustomSpinner.this.getText())) {
                     ((ArrayAdapter) CustomSpinner.this.getAdapter()).getFilter().filter(null);
                 }
                 CustomSpinner.this.showDropDown();
+
             }
         });
 
@@ -68,26 +78,16 @@ public class CustomSpinner extends android.support.v7.widget.AppCompatAutoComple
 
     @Override
     public void setError(CharSequence error) {
-
-        try {
-            ViewParent parent = getParent().getParent();
-            if (parent instanceof TextInputListener) {
-                if (error == null) {
-                    this.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_drop_down_24dp, 0);
-                    this.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
-                } else {
-                    this.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_drop_down_red_24dp, 0);
-                    setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
-                }
-                CustomTextInputLayout customTextInputLayout = ((CustomTextInputLayout) parent);
-                customTextInputLayout.setTextErrorInputLayout(error);
-                requestFocus();
-                return;
-            }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
+        if (error == null) {
+            this.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_drop_down_24dp, 0);
+            this.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
+        } else {
+            this.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_drop_down_red_24dp, 0);
+            setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext_error));
         }
-        super.setError(error);
+        requestFocus();
+        return;
+
 
     }
 
