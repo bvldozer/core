@@ -2,11 +2,15 @@ package com.cartenz.design.textlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -14,11 +18,14 @@ import android.widget.TextView;
 
 import com.cartenz.design.R;
 import com.cartenz.design.UnitHelper;
+import com.cartenz.design.ViewHelper;
 
 public class CustomInputLayout extends LinearLayout {
-    private int DEFAULT = 0;
+    public static int DEFAULT = 0;
 
+    private String text;
     private String hint;
+    //    private int hintColor = DEFAULT;
     private boolean isSpinner = false;
 
     private int errorBackgroundColor;
@@ -26,6 +33,14 @@ public class CustomInputLayout extends LinearLayout {
     private boolean errorEnabled;
     private String units;
     private int unitsTextColor = DEFAULT;
+
+    private boolean isFocusable = true;
+    private int background;
+    private int tint;
+    private int drawableRight;
+    private int drawableLeft;
+
+    private int inputType = DEFAULT;
 
     private CustomTextInputLayout customTextInputLayout;
     private CustomTextInputEditText customTextInputEditText;
@@ -50,35 +65,91 @@ public class CustomInputLayout extends LinearLayout {
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInputLayout, defStyleAttr, 0);
+
+        inputType = typedArray.getInt(R.styleable.CustomInputLayout_fieldInputType, DEFAULT);
+        text = typedArray.getString(R.styleable.CustomInputLayout_text);
+
         units = typedArray.getString(R.styleable.CustomInputLayout_units);
-        unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsTextColor, DEFAULT);
+        unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsColor, DEFAULT);
 
         hint = typedArray.getString(R.styleable.CustomInputLayout_hint);
+//        hintColor = typedArray.getColor(R.styleable.CustomInputLayout_hintColor, DEFAULT);
         isSpinner = typedArray.getBoolean(R.styleable.CustomInputLayout_isSpinner, false);
         errorEnabled = typedArray.getBoolean(R.styleable.CustomInputLayout_errorEnable, false);
         errorBackgroundColor = typedArray.getColor(R.styleable.CustomInputLayout_errorBackgroundColor, 0);
         errorTextColor = typedArray.getColor(R.styleable.CustomInputLayout_errorTextColor, ContextCompat.getColor(getContext(), R.color.red_1));
+        isFocusable = typedArray.getBoolean(R.styleable.CustomInputLayout_isFocusable, true);
 
+        background = typedArray.getResourceId(R.styleable.CustomInputLayout_fieldBackground, DEFAULT);
+        tint = typedArray.getColor(R.styleable.CustomInputLayout_fieldTint, DEFAULT);
+        drawableLeft = typedArray.getResourceId(R.styleable.CustomInputLayout_drawableLeft, DEFAULT);
+        drawableRight = typedArray.getResourceId(R.styleable.CustomInputLayout_drawableRight, DEFAULT);
         this.setOrientation(VERTICAL);
 
         if (isSpinner) {
             customSpinner = new CustomSpinner(context);
             customSpinner.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+            if (drawableLeft != DEFAULT) {
+                customSpinner.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, 0, 0, 0);
+            }
+            if (drawableRight != DEFAULT) {
+                customSpinner.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableRight, 0);
+            }
+            if (!isFocusable) {
+                ViewHelper.disableView(customSpinner);
+            }
+            customSpinner.setInputType(inputType);
         } else {
             customTextInputEditText = new CustomTextInputEditText(context);
+
             customTextInputEditText.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
             customTextInputEditText.setUnits(units, unitsTextColor);
+            if (inputType == InputType.TYPE_TEXT_FLAG_MULTI_LINE) {
+                customTextInputEditText.setMinHeight(UnitHelper.dpToInt(80));
+                customTextInputEditText.setGravity(Gravity.TOP | Gravity.LEFT);
+
+            }
+            if (drawableLeft != DEFAULT) {
+                customTextInputEditText.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, 0, 0, 0);
+            }
+            if (drawableRight != DEFAULT) {
+                customTextInputEditText.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableRight, 0);
+            }
+            if (!isFocusable) {
+                ViewHelper.disableView(customTextInputEditText);
+            }
+            if (!TextUtils.isEmpty(text)) {
+                customTextInputEditText.setText(text);
+            }
+
+            if (inputType != DEFAULT) {
+                customTextInputEditText.setInputType(InputType.TYPE_CLASS_TEXT | inputType);
+                customTextInputEditText.setSelection(customTextInputEditText.getText().length());
+            }
+
         }
+
         customTextInputLayout = new CustomTextInputLayout(context);
         customTextInputLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         if (!TextUtils.isEmpty(hint)) {
             customTextInputLayout.setHint(hint);
         }
+        if (inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+            customTextInputLayout.setPasswordVisibilityToggleEnabled(true);
+        }
+
         if (isSpinner) {
             customTextInputLayout.addView(customSpinner);
         } else {
             customTextInputLayout.addView(customTextInputEditText);
         }
+        if (tint != DEFAULT) {
+            customTextInputLayout.getBackground().setColorFilter(new PorterDuffColorFilter(tint, PorterDuff.Mode.SRC_IN));
+        }
+        if (background != DEFAULT) {
+            customTextInputLayout.setBackground(ContextCompat.getDrawable(getContext(), background));
+        }
+
         this.addView(customTextInputLayout);
         setErrorEnabled(errorEnabled);
 
@@ -194,5 +265,19 @@ public class CustomInputLayout extends LinearLayout {
         return -1;
     }
 
+    public CustomTextInputLayout getCustomTextInputLayout() {
+        return customTextInputLayout;
+    }
 
+    public CustomTextInputEditText getCustomTextInputEditText() {
+        return customTextInputEditText;
+    }
+
+    public CustomSpinner getCustomSpinner() {
+        return customSpinner;
+    }
+
+    public TextView getTvError() {
+        return tvError;
+    }
 }

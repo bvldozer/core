@@ -45,7 +45,8 @@ public class CustomTextInputEditText extends TextInputEditText {
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomInputLayout, defStyleAttr, 0);
         units = typedArray.getString(R.styleable.CustomInputLayout_units);
-        unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsTextColor, DEFAULT);
+        unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsColor, DEFAULT);
+
 
         setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
         int dp = UnitHelper.dpToInt(8);

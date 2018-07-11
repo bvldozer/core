@@ -1,12 +1,16 @@
 package com.cartenz.design.textlayout;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 
 import com.cartenz.design.R;
 import com.cartenz.design.UnitHelper;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class CustomTextInputLayout extends TextInputLayout {
 
@@ -31,6 +35,7 @@ public class CustomTextInputLayout extends TextInputLayout {
         setPadding(0, dp, 0, 0);
         setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_layout));
     }
+
 
 
 }

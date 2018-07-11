@@ -9,16 +9,34 @@
 
 
     <declare-styleable name="CustomInputLayout">
+        <attr name="error" format="string" />
         <attr name="errorBackgroundColor" format="color" />
         <attr name="errorTextColor" format="color" />
         <attr name="errorEnable" format="boolean" />
+        <attr name="fieldTint" format="color" />
+        <attr name="fieldBackground" format="reference" />
+        <attr name="drawableRight" format="reference" />
+        <attr name="drawableLeft" format="reference" />
         <attr name="isSpinner" format="boolean" />
-        <attr name="error" format="string" />
         <attr name="hint" format="string" />
+        <!--<attr name="hintColor" format="color" />-->
         <attr name="units" format="string" />
-        <attr name="unitsTextColor" format="color" />
-    </declare-styleable>
+        <attr name="unitsColor" format="color" />
+        <attr name="isFocusable" format="boolean" />
+        <attr name="text" format="string" />
+        <attr name="fieldInputType">
+            <flag name="number" value="2" />
+            <flag name="phone" value="3" />
+            <flag name="numberDecimal" value="8192" />
+            <flag name="password" value="128" />
+            <flag name="capCharacters" value="4096" />
+            <flag name="capSentences" value="16384" />
+            <flag name="capWords" value="8192" />
+            <flag name="multiline" value="131072" />
 
+        </attr>
+
+    </declare-styleable>
 
 
     <declare-styleable name="ImageViewMeasurement">

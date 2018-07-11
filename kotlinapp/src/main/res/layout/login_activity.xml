@@ -13,13 +13,24 @@
         android:layout_height="wrap_content"
         app:errorEnable="true"
         app:hint="test"
+        app:isFocusable="false"
+        app:text="ah begitulah"
         app:units="mail.com" />
+
+    <com.cartenz.design.textlayout.CustomInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnable="true"
+        app:fieldInputType="multiline"
+        app:hint="ayam"
+         />
 
     <com.cartenz.design.textlayout.CustomInputLayout
         android:id="@+id/sp_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnable="true"
+        app:fieldTint="@color/blue_1"
         app:hint="test"
         app:isSpinner="true" />
 
