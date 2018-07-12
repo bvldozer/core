@@ -24,6 +24,7 @@ public class CustomInputLayout extends LinearLayout {
     public static int DEFAULT = 0;
 
     private String text;
+    private float textSize;
     private String hint;
     //    private int hintColor = DEFAULT;
     private boolean isSpinner = false;
@@ -31,6 +32,7 @@ public class CustomInputLayout extends LinearLayout {
     private int errorBackgroundColor;
     private int errorTextColor;
     private boolean errorEnabled;
+    private boolean singleLine = true;
     private String units;
     private int unitsTextColor = DEFAULT;
 
@@ -69,6 +71,8 @@ public class CustomInputLayout extends LinearLayout {
         inputType = typedArray.getInt(R.styleable.CustomInputLayout_fieldInputType, DEFAULT);
         text = typedArray.getString(R.styleable.CustomInputLayout_text);
 
+        textSize = typedArray.getDimension(R.styleable.CustomInputLayout_textSize, context.getResources().getDimension(R.dimen.font_medium)) / scale();
+
         units = typedArray.getString(R.styleable.CustomInputLayout_units);
         unitsTextColor = typedArray.getColor(R.styleable.CustomInputLayout_unitsColor, DEFAULT);
 
@@ -76,6 +80,7 @@ public class CustomInputLayout extends LinearLayout {
 //        hintColor = typedArray.getColor(R.styleable.CustomInputLayout_hintColor, DEFAULT);
         isSpinner = typedArray.getBoolean(R.styleable.CustomInputLayout_isSpinner, false);
         errorEnabled = typedArray.getBoolean(R.styleable.CustomInputLayout_errorEnable, false);
+        singleLine = typedArray.getBoolean(R.styleable.CustomInputLayout_singleLine, true);
         errorBackgroundColor = typedArray.getColor(R.styleable.CustomInputLayout_errorBackgroundColor, 0);
         errorTextColor = typedArray.getColor(R.styleable.CustomInputLayout_errorTextColor, ContextCompat.getColor(getContext(), R.color.red_1));
         isFocusable = typedArray.getBoolean(R.styleable.CustomInputLayout_isFocusable, true);
@@ -98,17 +103,22 @@ public class CustomInputLayout extends LinearLayout {
             if (!isFocusable) {
                 ViewHelper.disableView(customSpinner);
             }
+            customSpinner.setSingleLine(singleLine);
+            customSpinner.setTextSize(textSize);
             customSpinner.setInputType(inputType);
         } else {
             customTextInputEditText = new CustomTextInputEditText(context);
 
             customTextInputEditText.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
             customTextInputEditText.setUnits(units, unitsTextColor);
+            customTextInputEditText.setTextSize(textSize);
             if (inputType == InputType.TYPE_TEXT_FLAG_MULTI_LINE) {
+                singleLine = false;
                 customTextInputEditText.setMinHeight(UnitHelper.dpToInt(80));
                 customTextInputEditText.setGravity(Gravity.TOP | Gravity.LEFT);
-
             }
+            customTextInputEditText.setSingleLine(singleLine);
+
             if (drawableLeft != DEFAULT) {
                 customTextInputEditText.setCompoundDrawablesWithIntrinsicBounds(drawableLeft, 0, 0, 0);
             }
@@ -155,6 +165,17 @@ public class CustomInputLayout extends LinearLayout {
 
     }
 
+    private float scale() {
+        return getResources().getDisplayMetrics().density;
+    }
+
+    public void setTextSize(float textSize) {
+        if (isSpinner) {
+            customSpinner.setTextSize(textSize);
+        } else {
+            customTextInputEditText.setTextSize(textSize);
+        }
+    }
 
     public void setError(String error) {
         setTextErrorInputLayout(error);

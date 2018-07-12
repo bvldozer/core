@@ -21,9 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnable="true"
-        app:fieldInputType="multiline"
-        app:hint="ayam"
-         />
+        app:hint="ayam" />
+
+    <com.cartenz.design.textlayout.CustomInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnable="true"
+        app:fieldInputType="password"
+        app:hint="petok" />
 
     <com.cartenz.design.textlayout.CustomInputLayout
         android:id="@+id/sp_test"

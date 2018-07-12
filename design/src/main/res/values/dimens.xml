@@ -49,11 +49,11 @@
     <dimen name="margin_larger">@dimen/dimens_32dp</dimen>
 
     <!-- Text Font -->
-    <dimen name="font_smaller">@dimen/text_10sp</dimen>
-    <dimen name="font_small">@dimen/text_12sp</dimen>
-    <dimen name="font_medium">@dimen/text_14sp</dimen>
-    <dimen name="font_large">@dimen/text_16sp</dimen>
-    <dimen name="font_larger">@dimen/text_18sp</dimen>
+    <dimen name="font_smaller">@dimen/text_12sp</dimen>
+    <dimen name="font_small">@dimen/text_14sp</dimen>
+    <dimen name="font_medium">@dimen/text_18sp</dimen>
+    <dimen name="font_large">@dimen/text_24sp</dimen>
+    <dimen name="font_larger">@dimen/text_32sp</dimen>
 
 
 </resources>

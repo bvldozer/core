@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -50,7 +51,11 @@ public class CustomTextInputEditText extends TextInputEditText {
 
         setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_text_input_edittext));
         int dp = UnitHelper.dpToInt(8);
-        setPadding(dp, dp, dp, dp);
+        int dpx = dp;
+        if (getInputType() != InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+            dpx = UnitHelper.dpToInt(16);
+        }
+        setPadding(dp, dpx, dp, dpx);
         setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
