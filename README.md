@@ -47,6 +47,13 @@ berisi base untuk aplikasi yang meliputi
 "com.github.pratamacartenz.core:kotlin:$rootProject.cartenzcore"
 
 # Change Log
+
+* 0.1.9
+  - custominputlayout : add feature textsize, singleline, fix textinputedittext size
+
+* 0.1.8
+  - custominputlayout
+
 * 0.1.7
   - cartenz.cartenzapp : network
   
